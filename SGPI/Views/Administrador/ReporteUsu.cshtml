@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "ReporteUsu";
+    Layout = "_LayoutSGPI";
+}
+<div class="container">
+    <h1>Reporte...</h1>
+    <br>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark justify-content-center">
+        <b>
+            <ul class="navbar-nav navbar-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/CrearUsuario">CREAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/BuscarUsuario">BUSCAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/EliminarUsuario">ELIMINAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/ModificarUsuario">MODIFICAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/ReporteUsu">REPORTES</a>
+                </li>
+            </ul>
+        </b>
+    </nav>
+    <br>
+    <div style="text-align:right">
+        <a href="/Administrador/Login" id="regresar">Cerrar sesion</a>
+    </div>
+    <br>
+    <br>
+    <b><label for="idNumbertxt">Numero de Documento</label></b>
+    <div class="form-group">
+        <input type="text" placeholder="#" class="form-control col-sm-1" id="idNumbertxt" required />
+    </div>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Primer Apellido</th>
+                <th scope="col">Segundo Apellido</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Programa</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Correo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>            
+        </tbody>
+    </table>
+</div>

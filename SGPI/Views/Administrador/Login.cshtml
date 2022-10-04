@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_LayoutSGPI";
+}
+<center>
+    <h1>Login</h1>
+
+    <form action="/Administrador/CrearUsuario">
+        <div class="form-group">
+            <b><label for="usuariotxt">Usuario</label></b>
+            <input type = "text" class="form-control col-sm-4" id="usuariotxt" required/>
+        </div>
+
+
+        <div class="form-group">
+            <b><label for="passwordtxt">Contraseña</label></b>
+            <input type = "password" class="form-control col-sm-4" id = "passwordtxt" required/>
+        </div>
+
+        <a href="/Administrador/OlvidarContrasena" id="recuperarPass">¿Olvidaste la contraseña?</a>
+        <br/>        
+        <button id = "ingresarbtn" class="btn btn-danger" type = "submit">Ingresar</button>    
+    </form>   
+</center>

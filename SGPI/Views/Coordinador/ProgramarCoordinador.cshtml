@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "ProgramarCoordinador";
+}
+<div class="Container">
+    <h1>Programar  Coordinador</h1>
+    <br>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark justify-content-center">
+        <b>
+            <ul class="navbar-nav navbar-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/BuscarCoordinador">BUSCAR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/ProgramarCoordinador">PROGRAMAR ASIGNACION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/Homologacion">HOMOLOGACION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/EntrevistaCoordinador">ENTREVISTA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/ReportesCoordinador">REPORTE</a>
+                </li>
+            </ul>
+        </b>
+    </nav>
+    <br>
+    <div style="text-align:right">
+        <a href="/Administrador/Login" id="regresar">Cerrar sesion</a>
+    </div>
+    <div class="container-fluid cew-9">
+        <div class="row">
+            <div class="col">
+                <b><label for="periodoacademicoCtxt">Periodo Academico</label></b>
+                <div class="form-group">
+                    <input type="number" placeholder="2023-1" class="form-control col-sm-1"  id="reportartxt" required />
+                </div>
+            </div>
+            <div class="col">
+                <b><label for="programa">Programa</label></b>
+                <br>
+                <select name="programa" id="programa">
+                    <option value="ingenieria">Ingenieria de Software</option>
+                    <option value="maestria">Maestria en Gestion TI</option>
+                    <option value="especializacionSI">Especializacion SI</option>
+                    <option value="medioAmbiente">Maestria en Medio Ambiente</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">FECHA</th>
+                    <th scope="col">SALA O AULA</th>
+                    <th scope="col">ASIGNATURA</th>
+                    <th scope="col">CODIGO ASIGNATURA</th>
+                    <th scope="col">OPCION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <td><input type="date" class="form-control col-sm-1"  id="fechatxt" required /></td>
+                    <td><input type="number" placeholder="5-210" class="form-control col-sm-1"  id="numdoctxt" required /></td>
+                    <td><input type="text" placeholder="Construccion de Software" class="form-control col-sm-1" id="numdoctxt" required /></td>
+                    <td><input type="number" placeholder="3456789" class="form-control col-sm-1" id="numdoctxt" required /></td>
+                    <td><input type="button" class="btn btn-outline-danger" value="BUSCAR"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+</div>
+

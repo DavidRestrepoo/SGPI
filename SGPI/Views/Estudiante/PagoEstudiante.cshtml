@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "PagoEstudiante";
+}
+
+<div class="Container">
+    <h1>Pago Estudiante</h1>
+    <br>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark justify-content-center">
+        <b>
+            <ul class="navbar-nav navbar-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Estudiante/ActualizarEstudiante">ACTUALIZAR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Estudiante/PagoEstudiante">PAGOS</a>
+                </li>
+            </ul>
+        </b>
+    </nav>
+    <br>
+    <div style="text-align:right">
+        <a href="/Administrador/Login" id="regresar">Cerrar sesion</a>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nro</th>
+                <th scope="col">Valor Pago</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>$</td>
+                <td><input type="date" class="form-control col-sm-1" id="timetxt" required /></td>
+                <td><a href="https://www.proturbiomarspa.com/files/_pdf-prueba.pdf" target="_blank" id="pdf">PagoEstudiante.pdf</a></td>
+            </tr>           
+        </tbody>
+    </table>
+</div>

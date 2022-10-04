@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "EntrevistaCoordinador";
+}
+
+
+<div class="Container">
+    <h1>EntrevistaCoordinador</h1>
+    <br>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark justify-content-center">
+        <b>
+            <ul class="navbar-nav navbar-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/BuscarCoordinador">BUSCAR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/ProgramarCoordinador">PROGRAMAR ASIGNACION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/Homologacion">HOMOLOGACION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/EntrevistaCoordinador">ENTREVISTA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coordinador/ReportesCoordinador">REPORTE</a>
+                </li>
+            </ul>
+        </b>
+    </nav>
+    <br>
+    <div style="text-align:right">
+        <a href="/Administrador/Login" id="regresar">Cerrar sesion</a>
+    </div>
+    <br>
+    <br>
+    <center>
+        <b><label for="idDocumenttxt">Buscar Usuario</label></b>
+        <div class="form-group">
+            <input type="number" placeholder="1.136.345.345" class="form-control col-sm-1" id="idDocumenttxt" required />
+            <br>
+            <input type="button" class="btn btn-outline-danger" value="BUSCAR">
+        </div>
+    </center>
+    <br>
+    <div class="container-fluid cew-9">
+        <div class="row">
+            <div class="col">
+                <b><label for="nombretxt">Nombre</label></b>
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre" class="form-control col-sm-1" id="nombretxt" required />
+                </div>
+                <br>
+                <b><label for="idDocumenttxt">Documento</label></b>
+                <div class="form-group">
+                    <input type="text" placeholder="1.111.111.111" class="form-control col-sm-1" id="idDocumenttxt" required />
+                </div>
+                <br>
+                <br>
+            </div>
+            <div class="col">
+                <b><label for="apellidotxt">Primer Apellido</label></b>
+                <div class="form-group">
+                    <input type="text" placeholder="Primer Apellido" class="form-control col-sm-1" id="apellidotxt" required />
+                </div>
+            </div>
+            <div class="col">
+                <b><label for="segundoapellidotxt">Segundo Apellido</label></b>
+                <div class="form-group">
+                    <input type="text" placeholder="Segundo Apellido" class="form-control col-sm-1" id="segundoapellidotxt" required />
+                </div>
+            </div>
+            <div class="col">
+                <b><label for="idprogramtxt">Programa</label></b>
+                <div class="form-group">
+                    <input type="text" placeholder="Ingenieria de Software" class="form-control col-sm-1" id="idprogramtxt" required />
+                </div>
+            </div>
+            <center>
+                <input type="button" class="btn btn-outline-danger" value="INGRESAR">
+                <input type="button" class="btn btn-outline-danger" value="VOLVER">
+            </center>
+        </div>
+    </div>
+</div>
+

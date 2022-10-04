@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewData["Title"] = "ModificarUsuario";
+}
+<div class="container">
+    <h1>ModificarUsuario</h1>
+    <br>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark justify-content-center">
+        <b>
+            <ul class="navbar-nav navbar-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/CrearUsuario">CREAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/BuscarUsuario">BUSCAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/EliminarUsuario">ELIMINAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/ModificarUsuario">MODIFICAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/ReporteUsu">REPORTES</a>
+                </li>
+            </ul>
+        </b>
+    </nav>
+    <br>
+    <div style="text-align:right">
+        <a href="/Administrador/Login" id="regresar">Cerrar sesion</a>
+    </div>
+
+    <div class="tab-content">
+        <form>
+            <br>
+            <div class="container tab-pane active">                
+                    <div class="container-fluid cew-9">
+                        <div class="row">
+                            <div class="col">
+                                <b><label for="tipo">Tipo de Documento</label></b>
+                                <br>
+                                <select name="idNumber" id="Tipodocumento">
+                                    <option value="cedula">Cedula de Ciudadania</option>
+                                    <option value="tarjeta">Tarjeta de Identidad</option>                                   
+                                </select>
+                                <br>
+                                <br>
+                                <br>
+                                <b><label for="programa">Programa</label></b>
+                                <br>
+                                <select name="programa" id="programa">
+                                    <option value="ingenieria">Ingenieria de Software</option>
+                                    <option value="maestria">Maestria en Gestion TI</option>
+                                    <option value="EspecializacionSI">Especializacion SI</option>
+                                    <option value="medioambiente">Maestria en Medio Ambiente</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="col">
+                                <b><label for="rol">Rol</label></b>
+                                <br>
+                                <select name="rol" id="rol">
+                                    <option value="administrador">Administrador</option>
+                                    <option value="coordinador">Coordinador</option>
+                                    <option value="estudiante">Estudiante</option>
+                                </select>
+                                <br>
+                                <br>
+                                <br>
+                                <b><label for="genero">Genero</label></b>
+                                <br>
+                                <select name="genero" id="genero">
+                                    <option value="masculino">Masculino</option>
+                                    <option value="femenino">Femenino</option>
+                                    <option value="helicoptero">Helicoptero Apache</option>
+                                    
+                                </select>
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <b><label for="idNumbertxt">Numero de Documento: </label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b><label for="idEmailtxt">Correo Electronico</label></b>
+                    <div class="input-group">
+                        <input type="text" placeholder="1.111.111.111" class="form-control col-sm-1"  id="idNumbertxt" required />
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="email" placeholder="usuario@correo.tdea.edu.co" class="form-control col-sm-1" id="idEmailtxt" required />
+                    </div>
+                    <br>
+                    <br>
+                    <b><label for="primerNombretxt">Primer Nombre</label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b><label for="segundoNombretxt">Segundo Nombre</label></b>
+                    <div class="input-group">
+                        <br>
+                        <input type="text" placeholder="Primer Nombre" class="form-control col-sm-1"  id="primerNombretxt" required />
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" placeholder="Segundo Nombre (opcional)" class="form-control col-sm-1"  id="segundoNombretxt" required />
+                        <br>
+                        <br>
+                    </div>
+                    <br>
+                    <br>
+                    <b><label for="primerApellidotxt">Primer Apellido</label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b><label for="segundolastnametxt">Segundo Apellido</label></b>
+                    <div class="input-group">
+                        <br>
+                        <input type="text" placeholder="Primer Apellido" class="form-control col-sm-1"  id="primerApellidotxt" required />
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" placeholder="Segundo Apellido" class="form-control col-sm-1"  id="segundolastnametxt" required />
+                        <br>
+                        <br>
+                    </div>
+                    <br>
+                    <br>
+                    <center><input type="button" class="btn btn-outline-danger" value="MODIFICAR USUARIO"></center>
+            </div>
+        </form>
+    </div>
+</div>
+

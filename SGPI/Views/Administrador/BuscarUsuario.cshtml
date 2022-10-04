@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "BuscarUsuario";
+    
+}
+<div class="container">
+    <h1>Buscar Usuario</h1>
+    <br>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark justify-content-center">
+        <b>
+            <ul class="navbar-nav navbar-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/CrearUsuario">CREAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/BuscarUsuario">BUSCAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/EliminarUsuario">ELIMINAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/ModificarUsuario">MODIFICAR USUARIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Administrador/ReporteUsu">REPORTES</a>
+                </li>
+            </ul>
+        </b>
+    </nav>
+    <br>
+    <div style="text-align:right">
+        <a href="/Administrador/Login" id="regresar">Cerrar sesion</a>
+    </div>
+    <div class="tab-content">
+        <form>
+            <br>
+            <b><label for="buscarUsutxt">Buscar usuario: </label></b>
+            <div class="input-group">
+                <input type="text" placeholder="Buscar Usuario" class="form-control col-sm-1"  id="busquedaUsutxt" required />
+                <input type="button" class="btn btn-outline-primary" value="BUSCAR">
+            </div>
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Primer Apellido</th>
+                        <th scope="col">Segundo Apellido</th>
+                        <th scope="col">Genero</th>
+                        <th scope="col">Documento</th>
+                        <th scope="col">Programa</th>
+                        <th scope="col">Roll</th>
+                        <th scope="col">Correo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <th scope="row">1</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>                                
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

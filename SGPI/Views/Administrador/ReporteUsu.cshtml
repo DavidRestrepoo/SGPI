@@ -1,4 +1,4 @@
-﻿
+﻿@model SGPI.Models.TblUsuario
 @{
     ViewData["Title"] = "ReporteUsu";
     Layout = "_LayoutSGPI";
@@ -33,38 +33,40 @@
     </div>
     <br>
     <br>
-    <b><label for="idNumbertxt">Numero de Documento</label></b>
-    <div class="form-group">
-        <input type="text" placeholder="#" class="form-control col-sm-1" id="idNumbertxt" required />
-    </div>
-    <br>
-    <br>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Primer Apellido</th>
-                <th scope="col">Segundo Apellido</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Documento</th>
-                <th scope="col">Programa</th>
-                <th scope="col">Rol</th>
-                <th scope="col">Correo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>            
-        </tbody>
-    </table>
+    <form>
+        <b><label for="idNumbertxt">Numero de Documento</label></b>
+        <div class="form-group">
+            <input asp-for="NumeroDocumento" type="text" placeholder="#" class="form-control col-sm-1" id="idNumbertxt" required />
+        </div>
+        <br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Primer Apellido</th>
+                    <th scope="col">Segundo Apellido</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Documento</th>
+                    <th scope="col">Programa</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </div>

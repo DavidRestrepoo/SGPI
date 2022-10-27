@@ -3,6 +3,8 @@ using SGPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 builder.Services.AddDbContext<SGPI_BDContext>(options =>
 
 {

@@ -1,7 +1,7 @@
-﻿
+﻿@model SGPI.Models.TblUsuario
 @{
     ViewData["Title"] = "BuscarUsuario";
-    
+    Layout = "_LayoutSGPI";
 }
 <div class="container">
     <h1>Buscar Usuario</h1>
@@ -36,8 +36,8 @@
             <br>
             <b><label for="buscarUsutxt">Buscar usuario: </label></b>
             <div class="input-group">
-                <input type="text" placeholder="Buscar Usuario" class="form-control col-sm-1"  id="busquedaUsutxt" required />
-                <input type="button" class="btn btn-outline-primary" value="BUSCAR">
+                <input asp-for="NumeroDocumento" type="text" placeholder="Buscar Usuario" class="form-control col-sm-1"  id="busquedaUsutxt" required />
+                <input type="submit" class="btn btn-outline-primary" value="BUSCAR">
             </div>
             <table class="table">
                 <thead>

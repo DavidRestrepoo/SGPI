@@ -1,5 +1,7 @@
-﻿@{
+﻿@model SGPI.Models.TblUsuario
+@{
     ViewData["Title"] = "CrearUsuario";
+    Layout = "_LayoutSGPI";
 }
 <div action="container">
     <h1>CrearUsuario</h1>
@@ -40,74 +42,79 @@
                     <div class="col">
                         <b><label for="tipo">Tipo de Documento</label></b>
                         <br>
-                        <select name="tipodocumento" id="Tipodocumento" class="list-group">
-                            <option value="cedula" class="list-group-item">Cedula de Ciudadania</option>
-                            <option value="tarjeta" class="list-group-item">Tarjeta de Identidad</option>                            
-                        </select>                                             
+                        @Html.DropDownList("Iddoc", new SelectList(ViewBag.TblTipoDocumento, "Iddoc","TipoDocumento"), new{@class="form-control dropdown"})
+                        @*<select name="tipodocumento" id="Tipodocumento" class="list-group">
+                        <option value="cedula" class="list-group-item">Cedula de Ciudadania</option>
+                        <option value="tarjeta" class="list-group-item">Tarjeta de Identidad</option>
+                        </select>*@
                         <b><label for="programa">Programa</label></b>
                         <br>
-                        <select name="programa" id="programa" class="list-group">
-                            <option value="ingenieria" class="list-group-item">Ingenieria de Software</option>
-                            <option value="maestria" class="list-group-item">Maestria en Gestion TI</option>
-                            <option value="especializacionSI" class="list-group-item">Especializacion SI</option>
-                            <option value="medioAmbiente" class="list-group-item">Maestria en Medio Ambiente</option>
-                        </select>
+                        @Html.DropDownList("Idprograma", new SelectList(ViewBag.TblPrograma, "Idprograma","Programa"), new{@class="form-control dropdown"})
+                        @*<select name="programa" id="programa" class="list-group">
+                        <option value="ingenieria" class="list-group-item">Ingenieria de Software</option>
+                        <option value="maestria" class="list-group-item">Maestria en Gestion TI</option>
+                        <option value="especializacionSI" class="list-group-item">Especializacion SI</option>
+                        <option value="medioAmbiente" class="list-group-item">Maestria en Medio Ambiente</option>
+                        </select>*@
                         <br>
                     </div>
                     <div class="col">
                         <b><label for="rol">Rol</label></b>
                         <br>
-                        <select name="rol" id="rol">
-                            <option value="administrador">Administrador</option>
-                            <option value="coordinador">Coordinador</option>
-                            <option value="estudiante">Estudiante</option>
-                        </select>
-                        <br>                     
-                        <b><label for="genero">Genero</label></b>
+                        @Html.DropDownList("Idrol", new SelectList(ViewBag.TblRol, "Idrol","Rol"), new{@class="form-control dropdown"})
+                        @*<select name="rol" id="rol">
+                        <option value="administrador">Administrador</option>
+                        <option value="coordinador">Coordinador</option>
+                        <option value="estudiante">Estudiante</option>
+                        </select>*@
                         <br>
-                        <select name="genero" id="genero">
-                            <option value="masculino" class="list-group-item">Masculino</option>
-                            <option value="femenino" class="list-group-item">Femenino</option>
-                            <option value="helicoptero" class="list-group-item">Helicoptero Apache</option>
-                        </select>                                       
+                        <b><label for="genero">Genero</label></b>
+                        @Html.DropDownList("Idgenero", new SelectList(ViewBag.TblGenero,"Idgenero","Genero"),new{@class="form-control dropdown"})
+                        @*<select name="genero" id="genero">
+                        <option value="masculino" class="list-group-item">Masculino</option>
+                        <option value="femenino" class="list-group-item">Femenino</option>
+                        <option value="helicoptero" class="list-group-item">Helicoptero Apache</option>
+                        </select>*@
                     </div>
                 </div>
             </div>
 
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
 
-            <b><label for="numdoctxt">Numero de Documento: </label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <b><label for="correoelectxt">Correo Electronico</label></b>
-            <div class="input-group">
-                <input type="number" placeholder="#" class="form-control col-sm-1" id="numdoctxt" required />
-                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="email" placeholder="Correo Electronico" class="form-control col-sm-1" style="width : 5px; heigth : 1px" id="correoelectxt" required />
+                        <b><label for="numdoctxt">Numero de Documento: </label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b><label for="correoelectxt">Correo Electronico</label></b>
+                        <div class="input-group">
+                            <input asp-for="NumeroDocumento" type="number" placeholder="#" class="form-control col-sm-1" id="numdoctxt" required />
+                            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input asp-for="Email" type="email" placeholder="Correo Electronico" class="form-control col-sm-1" style="width : 5px; heigth : 1px" id="correoelectxt" required />
+                        </div>
+                        <br>
+                        <br>
+                        <div class="input-group">
+                            <br>
+                            <input asp-for="PrimerNombre" type="text" placeholder="Primer Nombre" class="form-control col-sm-1" id="primerNombretxt" required />
+                            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input asp-for="SegundoNombre" type="text" placeholder="Segundo Nombre (Opcional)" class="form-control col-sm-1" id="segundoNombretxt" required />
+                            <br>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="input-group">
+                            <br>
+                            <input asp-for="PrimerApellido" type="text" placeholder="Primer Apellido" class="form-control col-sm-1" id="primerApellidotxt" required />
+                            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input asp-for="SegundoApellido" type="text" placeholder="Segundo Apellido" class="form-control col-sm-1" id="segundoApellidotxt" required />
+                            <br>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <center><input type="button" class="btn btn-outline-danger" value="CREAR USUARIO"></center>
+                    </div>
+                </div>
             </div>
-            <br>
-            <br>
-            <b><label for="primerNombretxt">Primer Nombre</label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <b><label for="segundoNombretxt">Segundo Nombre</label></b>
-            <div class="input-group">
-                <br>
-                <input type="text" placeholder="Primer Nombre" class="form-control col-sm-1"  id="primerNombretxt" required />
-                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="text" placeholder="Segundo Nombre (Opcional)" class="form-control col-sm-1" id="segundoNombretxt" required />
-                <br>
-                <br>
-            </div>
-            <br>
-            <br>
-            <b><label for="primerApellidotxt">Primer Apellido</label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <b><label for="segundoApellidotxt">Segundo Apellido</label></b>
-            <div class="input-group">
-                <br>
-                <input type="text" placeholder="Primer Apellido" class="form-control col-sm-1" id="primerApellidotxt" required />
-                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="text" placeholder="Segundo Apellido" class="form-control col-sm-1" id="segundoApellidotxt" required />
-                <br>
-                <br>
-            </div>
-            <br>
-            <br>
-            <center><input type="button" class="btn btn-outline-danger" value="CREAR USUARIO"></center>
     </div>
 </form>

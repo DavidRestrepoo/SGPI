@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SGPI.Models;
 
 namespace SGPI.Controllers
@@ -24,19 +25,25 @@ namespace SGPI.Controllers
             //BDContext.SaveChanges();
 
             //Query
+            //TblUsuario usuario = new TblUsuario();
+            //usuario = BDContext.TblUsuarios
+            //.Single(b => b.NumeroDocumento == "123456789");
+
+            //List<TblUsuario> usuarios = new List<TblUsuario>();
+            //usuarios = BDContext.TblUsuarios.ToList();
 
             //Update
 
-            var usr = BDContext.TblUsuarios.Where(cursor => cursor.Idusuario == 1).FirstOrDefault();
-            if (usr != null)
-            {
-                usr.SegundoNombre = "Tronchatoro";
-                BDContext.TblUsuarios.Update(usr);
-                BDContext.SaveChanges();
-            }
+            //var usr = BDContext.TblUsuarios.Where(cursor => cursor.Idusuario == 1).FirstOrDefault();
+            //if (usr != null)
+            //{
+            //    usr.SegundoNombre = "Tronchatoro";
+            //    BDContext.TblUsuarios.Update(usr);
+            //    BDContext.SaveChanges();
+            //}
             //Delete
-            var usuarioEliminar = BDContext.TblUsuarios.Where(cursor => cursor.Idusuario == 1).FirstOrDefault();
-            BDContext.TblUsuarios.Remove(usuarioEliminar);
+            //var usuarioEliminar = BDContext.TblUsuarios.Where(cursor => cursor.Idusuario == 1).FirstOrDefault();
+            //BDContext.TblUsuarios.Remove(usuarioEliminar);
 
             return View();
         }
@@ -47,21 +54,33 @@ namespace SGPI.Controllers
             string numerodoc = user.NumeroDocumento;
             string password = user.VcPassword;
 
-            var usuarioLogin=BDContext.TblUsuarios.Where(consulta => consulta.NumeroDocumento == numerodoc && consulta.VcPassword=password).FirstOrDefault();
+            var usuarioLogin = BDContext.TblUsuarios.Where(consulta => consulta.NumeroDocumento == numerodoc && consulta.VcPassword == password).FirstOrDefault();
             if (usuarioLogin != null)
             {
                 switch (usuarioLogin.Idrol)
                 {
                     case 1:
+                        CrearUsuario();
+                        return View("CrearUsuario");
                     case 2:
+                        /// Instancia para el controlador de coordinador
+                        CoordinadorController Coordinador = new CoordinadorController();
+                        /// Objeto tipo CoordinadorController
+                        Coordinador.BuscarCoordinador();
+                        return Redirect("Coordinador/BuscarCoordinador");
                     case 3:
+                        /// Instancia para el controlador de Estudiante
+                        EstudianteController Estudiante = new EstudianteController();
+                        Estudiante.ActualizarEstudiante();
+                        /// Objeto tipo EstudianteController
+                        return Redirect("Estudiante/ActualizarEstudiante");
                     default:
+                        return View();
                 }
             }
             else
             {
-                return ViewBag.mensaje = "Usuario no existe o usuario/contraseña no no valida";
-                
+                ViewBag.mensaje = "Usuario no existe o usuario y/o contraseña invalido";
             }
             return View();
         }
@@ -72,11 +91,22 @@ namespace SGPI.Controllers
         }
         public IActionResult CrearUsuario()
         {
+            ViewBag.TblPrograma = BDContext.TblProgramas.ToList();
+            ViewBag.TblGenero = BDContext.TblGeneros.ToList();
+            ViewBag.TblRol = BDContext.TblRols.ToList();
+            ViewBag.TblTipoDocumento = BDContext.TblTipoDocumentos.ToList();
             return View();
         }
 
         public IActionResult BuscarUsuario()
         {
+            //TblUsuario usuario = new TblUsuario();
+            
+            //usuario = BDContext.TblUsuarios
+            //.Single(b => b.NumeroDocumento == "");
+
+            //List<TblUsuario> usuarios = new List<TblUsuario>();
+            //usuarios = BDContext.TblUsuarios.ToList();
             return View();
         }
 
@@ -87,6 +117,10 @@ namespace SGPI.Controllers
 
         public IActionResult ModificarUsuario()
         {
+            ViewBag.TblPrograma = BDContext.TblProgramas.ToList();
+            ViewBag.TblGenero = BDContext.TblGeneros.ToList();
+            ViewBag.TblRol = BDContext.TblRols.ToList();
+            ViewBag.TblTipoDocumento = BDContext.TblTipoDocumentos.ToList();
             return View();
         }
 

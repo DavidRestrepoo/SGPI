@@ -1,6 +1,7 @@
-﻿
+﻿@model SGPI.Models.TblUsuario
 @{
-    ViewData["Title"] = "EliminarUsuario";    
+    ViewData["Title"] = "EliminarUsuario"; 
+    Layout = "_LayoutSGPI";
 }
 
 
@@ -37,7 +38,7 @@
             <br>
             <b><label for="buscarUsutxt">Buscar usuario: </label></b>
             <div class="input-group">
-                <input type="text" placeholder="1.111.111.111" class="form-control col-sm-1" id="busquedaUsutxt" required />
+                <input asp-for="NumeroDocumento" type="text" placeholder="1.111.111.111" class="form-control col-sm-1" id="busquedaUsutxt" required />
                 <input type="button" class="btn btn-outline-danger" value="BUSCAR">
                 <input type="button" class="btn btn-outline-danger" value="ELIMINAR">
             </div>

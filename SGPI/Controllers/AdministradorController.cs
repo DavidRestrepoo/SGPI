@@ -61,19 +61,19 @@ namespace SGPI.Controllers
                 {
                     case 1:
                         CrearUsuario();
-                        return View("CrearUsuario");
+                        return Redirect("/Administrador/CrearUsuario");
                     case 2:
                         /// Instancia para el controlador de coordinador
                         CoordinadorController Coordinador = new CoordinadorController();
                         /// Objeto tipo CoordinadorController
                         Coordinador.BuscarCoordinador();
-                        return Redirect("Coordinador/BuscarCoordinador");
+                        return Redirect("/Coordinador/BuscarCoordinador");
                     case 3:
                         /// Instancia para el controlador de Estudiante
                         EstudianteController Estudiante = new EstudianteController();
-                        Estudiante.ActualizarEstudiante();
+                        //Estudiante.ActualizarEstudiante();
                         /// Objeto tipo EstudianteController
-                        return Redirect("Estudiante/ActualizarEstudiante");
+                        return Redirect("/Estudiante/ActualizarEstudiante/?Idusuario="+ usuarioLogin.Idusuario);
                     default:
                         return View();
                 }
@@ -98,34 +98,82 @@ namespace SGPI.Controllers
             return View();
         }
 
-        public IActionResult BuscarUsuario()
+        [HttpPost]
+        public IActionResult CrearUsuario(TblUsuario user)
         {
-            //TblUsuario usuario = new TblUsuario();
-            
-            //usuario = BDContext.TblUsuarios
-            //.Single(b => b.NumeroDocumento == "");
+            BDContext.TblUsuarios.Add(user);
+            BDContext.SaveChanges();
 
-            //List<TblUsuario> usuarios = new List<TblUsuario>();
-            //usuarios = BDContext.TblUsuarios.ToList();
-            return View();
-        }
-
-        public IActionResult EliminarUsuario()
-        {
-            return View();
-        }
-
-        public IActionResult ModificarUsuario()
-        {
+            ViewBag.mensaje = "usuario creado Exitosamente";
             ViewBag.TblPrograma = BDContext.TblProgramas.ToList();
             ViewBag.TblGenero = BDContext.TblGeneros.ToList();
             ViewBag.TblRol = BDContext.TblRols.ToList();
             ViewBag.TblTipoDocumento = BDContext.TblTipoDocumentos.ToList();
+
             return View();
+        }
+
+        public IActionResult BuscarUsuario()
+        {
+            TblUsuario usuario = new TblUsuario();
+            return View(usuario);
+        }
+
+        [HttpPost]
+        public IActionResult BuscarUsuario(TblUsuario usuario)
+        {
+            String numeroDoc = usuario.NumeroDocumento;
+            var user = BDContext.TblUsuarios.Where(consulta => consulta.NumeroDocumento == numeroDoc).FirstOrDefault();
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public IActionResult EliminarUsuario(int? Idusuario)
+        {
+            TblUsuario user = BDContext.TblUsuarios.Find(Idusuario);
+
+            if (user != null)
+            {
+                BDContext.Remove(user);
+                BDContext.SaveChanges();
+            }
+            return Redirect("/Administrador/BuscarUsuario");
+        }
+
+        [HttpPost]
+        public IActionResult ModificarUsuario(TblUsuario usuario)
+        {
+            BDContext.Update(usuario);
+            BDContext.SaveChanges();
+            return Redirect("/Administrador/BuscarUsuario");
+        }
+
+        public IActionResult ModificarUsuario(int? Idusuario)
+        {
+            TblUsuario usuario = BDContext.TblUsuarios.Find(Idusuario);
+            if (usuario != null)
+            {
+                ViewBag.TblPrograma = BDContext.TblProgramas.ToList();
+                ViewBag.TblGenero = BDContext.TblGeneros.ToList();
+                ViewBag.TblRol = BDContext.TblRols.ToList();
+                ViewBag.TblTipoDocumento = BDContext.TblTipoDocumentos.ToList();
+                return View(usuario);
+            }
+            else
+            {
+                return Redirect("/Administrador/BuscarUsuario");
+            }
         }
 
         public IActionResult ReporteUsu()
         {
+
             return View();
         }
     }

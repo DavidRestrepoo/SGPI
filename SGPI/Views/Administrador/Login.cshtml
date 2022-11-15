@@ -3,10 +3,6 @@
     ViewData["Title"] = "Login";
     Layout = "_LayoutSGPI";
 }
-@if (ViewBag.mensaje != null)
-{
-<center><h1>@ViewBag.mensaje</h1></center><br />
-}
 <center>
     <h1>Login</h1>
 
@@ -33,4 +29,10 @@
             <button id="ingresarbtn" class="btn btn-danger" type="submit">Ingresar</button>
         </div>
     </form>
+    @if (ViewBag.mensaje != null)
+    {
+        <h1>@ViewBag.mensaje</h1>
+
+        <br />
+    }
 </center>

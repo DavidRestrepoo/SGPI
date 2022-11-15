@@ -33,7 +33,7 @@
     </div>
 
     <div class="tab-content">
-        <form>
+        <form method="post">
             <br>
             <div class="container tab-pane active">
                 <div class="container-fluid cew-9">
@@ -41,86 +41,76 @@
                         <div class="col">
                             <b><label for="tipo">Tipo de Documento</label></b>
                             <br>
-                            @Html.DropDownList("Iddoc", new SelectList(ViewBag.TblTipoDocumento, "Iddoc","TipoDocumento"), new{@class="form-control dropdown"})
-                            @*<select name="idNumber" id="Tipodocumento">
-                            <option value="cedula">Cedula de Ciudadania</option>
-                            <option value="tarjeta">Tarjeta de Identidad</option>
-                            </select>*@
+                                @Html.DropDownList("Iddoc", new SelectList(ViewBag.TblTipoDocumento, "Iddoc","TipoDocumento"), new{@class="form-control dropdown"})
                             <br>
-                            <br>
-                            <br>
+
                             <b><label for="programa">Programa</label></b>
                             <br>
-                            @Html.DropDownList("Idprograma", new SelectList(ViewBag.TblPrograma, "Idprograma","Programa"), new{@class="form-control dropdown"})
-                            @*<select name="programa" id="programa">
-                            <option value="ingenieria">Ingenieria de Software</option>
-                            <option value="maestria">Maestria en Gestion TI</option>
-                            <option value="EspecializacionSI">Especializacion SI</option>
-                            <option value="medioambiente">Maestria en Medio Ambiente</option>
-                            </select>*@
+                                @Html.DropDownList("Idprograma", new SelectList(ViewBag.TblPrograma, "Idprograma","Programa"), new{@class="form-control dropdown"})
                             <br>
                         </div>
                         <div class="col">
                             <b><label for="rol">Rol</label></b>
                             <br>
-                            @Html.DropDownList("Idrol", new SelectList(ViewBag.TblRol, "Idrol","Rol"), new{@class="form-control dropdown"})
-                            @* <select name="rol" id="rol">
-                            <option value="administrador">Administrador</option>
-                            <option value="coordinador">Coordinador</option>
-                            <option value="estudiante">Estudiante</option>
-                            </select>*@
-                            <br>
-                            <br>
+                                @Html.DropDownList("Idrol", new SelectList(ViewBag.TblRol, "Idrol","Rol"), new{@class="form-control dropdown"})
+
                             <br>
                             <b><label for="genero">Genero</label></b>
                             <br>
-                            @Html.DropDownList("Idgenero", new SelectList(ViewBag.TblGenero,"Idgenero","Genero"),new{@class="form-control dropdown"})
-                            @* <select name="genero" id="genero">
-                            <option value="masculino">Masculino</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="helicoptero">Helicoptero Apache</option>
-                            </select>*@
+                                @Html.DropDownList("Idgenero", new SelectList(ViewBag.TblGenero,"Idgenero","Genero"),new{@class="form-control dropdown"})
                             <br>
-                            <br>
-                            <br>
+
                         </div>
                     </div>
                 </div>
-                <b><label for="idNumbertxt">Numero de Documento: </label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <b><label for="idEmailtxt">Correo Electronico</label></b>
-                <div class="input-group">
-                    <input asp-for="NumeroDocumento" type="text" placeholder="1.111.111.111" class="form-control col-sm-1" id="idNumbertxt" required />
-                    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input asp-for="Email" type="email" placeholder="usuario@correo.tdea.edu.co" class="form-control col-sm-1" id="idEmailtxt" required />
+                    @* <b><label for="idNumbertxt" >Numero de Documento: </label></b>
+                <b><label for="idEmailtxt">Correo Electronico</label></b>*@
+                <div class="container">
+                    <br />
+                    <div class="row">
+
+                        <div class="col">
+                            <b><label for="idNumbertxt">Numero de Documento: </label></b>
+                            <input asp-for="NumeroDocumento" type="text" class="form-control" id="idNumbertxt" placeholder="Numero de Documento:">
+                        </div>
+
+                        <div class="col">
+                            <b><label for="PRIMER_NOMBRE">Primer Nombre </label></b>
+                            <input asp-for="PrimerNombre" type="text" class="form-control" id="PRIMER_NOMBRE" placeholder="PRIMER NOMBRE">
+                        </div>
+
+                        <div class="col">
+                            <b><label for="Segundo_Nombre">Segundo Nombre: </label></b>
+                            <input asp-for="SegundoNombre" type="text" class="form-control" id="Segundo_Nombre" placeholder="SEGUNDO NOMBRE">
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row">
+
+                        <div class="col">
+                            <b><label for="Primer_Apellido">Primer Apellido: </label></b>
+                            <input asp-for="PrimerApellido" type="text" class="form-control" id="Primer_Apellido" placeholder="PRIMER APELLIDO">
+                        </div>
+
+
+                        <div class="col">
+                            <b><label for="SEGUNDO_APELLIDO">Segundo Apellido: </label></b>
+                            <input asp-for="SegundoApellido" type="text" class="form-control" id="SEGUNDO_APELLIDO" placeholder="SEGUNDO APELLIDO">
+                        </div>
+
+                        <div class="col">
+                            <b><label for="email">Email: </label></b>
+                            <input asp-for="Email" type="text" class="form-control" id="email" placeholder="CORREO ELECTRONICO">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b><label for="passwordtxt">Contraseña</label></b>
+                        <input asp-for="VcPassword" type="password" class="form-control col-sm-4" id="passwordtxt" required />
+                    </div>
+                    <br />
+                    <center><input type="submit" class="btn btn-outline-danger" value="MODIFICAR USUARIO"></center>
                 </div>
-                <br>
-                <br>
-                <b><label for="primerNombretxt">Primer Nombre</label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <b><label for="segundoNombretxt">Segundo Nombre</label></b>
-                <div class="input-group">
-                    <br>
-                    <input asp-for="PrimerNombre" type="text" placeholder="Primer Nombre" class="form-control col-sm-1" id="primerNombretxt" required />
-                    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input asp-for="SegundoNombre" type="text" placeholder="Segundo Nombre (opcional)" class="form-control col-sm-1" id="segundoNombretxt" required />
-                    <br>
-                    <br>
-                </div>
-                <br>
-                <br>
-                <b><label for="primerApellidotxt">Primer Apellido</label></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <b><label for="segundolastnametxt">Segundo Apellido</label></b>
-                <div class="input-group">
-                    <br>
-                    <input asp-for="PrimerApellido" type="text" placeholder="Primer Apellido" class="form-control col-sm-1" id="primerApellidotxt" required />
-                    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input asp-for="SegundoApellido" type="text" placeholder="Segundo Apellido" class="form-control col-sm-1" id="segundolastnametxt" required />
-                    <br>
-                    <br>
-                </div>
-                <br>
-                <br>
-                <center><input type="submit" class="btn btn-outline-danger" value="MODIFICAR USUARIO"></center>
-            </div>
         </form>
     </div>
 </div>

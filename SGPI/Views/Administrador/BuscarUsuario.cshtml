@@ -3,7 +3,7 @@
     ViewData["Title"] = "BuscarUsuario";
     Layout = "_LayoutSGPI";
 }
-<div class="container">
+
     <h1>Buscar Usuario</h1>
     <br>
     <nav class="navbar navbar-expand-sm bg-success navbar-dark justify-content-center">
@@ -32,41 +32,50 @@
         <a href="/Administrador/Login" id="regresar">Cerrar sesion</a>
     </div>
     <div class="tab-content">
-        <form>
+        <form method="post">
             <br>
             <b><label for="buscarUsutxt">Buscar usuario: </label></b>
             <div class="input-group">
-                <input asp-for="NumeroDocumento" type="text" placeholder="Buscar Usuario" class="form-control col-sm-1"  id="busquedaUsutxt" required />
+                <input asp-for="NumeroDocumento" type="text" placeholder="Buscar Usuario" class="form-control col-sm-5" id="busquedaUsutxt" required /> 
                 <input type="submit" class="btn btn-outline-primary" value="BUSCAR">
-            </div>
+            </div>      
+        @if (Model != null)
+        {
             <table class="table">
                 <thead>
                     <tr class="text-center">
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Primer Apellido</th>
-                        <th scope="col">Segundo Apellido</th>
-                        <th scope="col">Genero</th>
-                        <th scope="col">Documento</th>
-                        <th scope="col">Programa</th>
-                        <th scope="col">Roll</th>
-                        <th scope="col">Correo</th>
+                        <th>@Html.DisplayNameFor(modelitem=>modelitem.NumeroDocumento)</th>
+                        <th>@Html.DisplayNameFor(modelitem=>modelitem.PrimerNombre)</th>
+                        <th>@Html.DisplayNameFor(modelitem=>modelitem.SegundoNombre)</th>
+                        <th>@Html.DisplayNameFor(modelitem=>modelitem.PrimerApellido)</th>
+                        <th>@Html.DisplayNameFor(modelitem=>modelitem.SegundoApellido)</th>
+                        <th>@Html.DisplayNameFor(modelitem=>modelitem.Idrol)</th>
+                        <th>@Html.DisplayNameFor(modelitem=>modelitem.Idgenero)</th>
+                        <th>@Html.DisplayNameFor(modelitem=>modelitem.Idprograma)</th>
+                        <th>@Html.DisplayNameFor(modelitem=>modelitem.Email)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="text-center">
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>                                
+                        <th>@Html.DisplayFor(modelitem=>modelitem.NumeroDocumento)</th>
+                        <th>@Html.DisplayFor(modelitem=>modelitem.PrimerNombre)</th>
+                        <th>@Html.DisplayFor(modelitem=>modelitem.SegundoNombre)</th>
+                        <th>@Html.DisplayFor(modelitem=>modelitem.PrimerApellido)</th>
+                        <th>@Html.DisplayFor(modelitem=>modelitem.SegundoApellido)</th>
+                        <th>@Html.DisplayFor(modelitem=>modelitem.Idrol)</th>
+                        <th>@Html.DisplayFor(modelitem=>modelitem.Idgenero)</th>
+                        <th>@Html.DisplayFor(modelitem=>modelitem.Idprograma)</th>
+                        <th>@Html.DisplayFor(modelitem=>modelitem.Email)</th>
+                        <th>@Html.ActionLink("ModificarUsuario","ModificarUsuario", new {Idusuario=Model.Idusuario})</th>
+                        <th>@Html.ActionLink("EliminarUsuario","EliminarUsuario", new {Idusuario=Model.Idusuario},
+                        new {onclick="return confirm('¿Estas seguro de eliminarlo?');"})</th>
+                    </tr>
+
                 </tbody>
             </table>
+        }
+        else{
+            <label> "Nose encontro el usuario"</label>
+        }
         </form>
     </div>
-</div>

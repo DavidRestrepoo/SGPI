@@ -4,28 +4,28 @@
     Layout = "_LayoutSGPI";
 }
 <h1>Actualizar Estudiante</h1>
+<form method="post">
+    <div class="container">
+        <br>
+        <nav class="navbar navbar-expand-sm bg-success navbar-dark justify-content-center">
 
-<div class="container">
-    <br>
-    <nav class="navbar navbar-expand-sm bg-success navbar-dark justify-content-center">
-        
             <ul class="navbar-nav navbar-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="">Actualizar</a>
+                        @Html.ActionLink("ActializarEstudiante", "ActualizarEstudiante", new {IdUsuario = Model.Idusuario})
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Estudiante/PagoEstudiante">Pagos</a>
+                        @Html.ActionLink("PagoEstudiante","PagoEstudiante", new {IdUsuario = Model.Idusuario})
                 </li>
             </ul>
-        
-    </nav>
-    <br>
-    <div style="text-align:right">
-        <a href="/Administrador/Login" id="regresar">Cerrar sesion</a>
-    </div>
 
-    <div class="content">
-        <form method="post">
+        </nav>
+        <br>
+        <div style="text-align:right">
+            <a href="/Administrador/Login" id="regresar">Cerrar sesion</a>
+        </div>
+
+        <div class="content">
+
             <br>
             <div class="container ">
 
@@ -34,16 +34,16 @@
                         <div class="col">
                             <b><label for="tipo">Tipo de Documento</label></b>
                             <br>
-                            @Html.DropDownList("Iddoc", new SelectList(ViewBag.TblTipoDocumento, "Iddoc","TipoDocumento"), new{@class="form-control dropdown"})
+                                    @Html.DropDownList("Iddoc", new SelectList(ViewBag.TblTipoDocumento, "Iddoc","TipoDocumento"), new{@class="form-control dropdown"})
 
                             <b><label for="programa">Programa</label></b>
                             <br>
-                            @Html.DropDownList("Idprograma", new SelectList(ViewBag.TblPrograma, "Idprograma","Programa"), new{@class="form-control dropdown"})
+                                    @Html.DropDownList("Idprograma", new SelectList(ViewBag.TblPrograma, "Idprograma","Programa"), new{@class="form-control dropdown"})
                         </div>
 
                         <div class="col">
                             <b><label for="genero">Genero</label></b>
-                            @Html.DropDownList("Idgenero", new SelectList(ViewBag.TblGenero,"Idgenero","Genero"),new{@class="form-control dropdown"})
+                                    @Html.DropDownList("Idgenero", new SelectList(ViewBag.TblGenero,"Idgenero","Genero"),new{@class="form-control dropdown"})
                         </div>
                     </div>
                 </div>
@@ -81,19 +81,19 @@
                         <input asp-for="VcPassword" type="password" class="form-control col-sm-4" id="passwordtxt" required />
                     </div>
                     <br />
-                    @if (ViewBag.mensaje != null)
-                    {
+                            @if (ViewBag.mensaje != null)
+                            {
                         <div class="alert alert-info" role="alert">
-                            @ViewBag.mensaje
+                                    @ViewBag.mensaje
                         </div>
-                    }
+                            }
                     <br>
                     <center>
                         <input type="submit" class="btn btn-outline-danger" value="Modificar Estudiante">
                     </center>
                 </div>
             </div>
-        </form>
+</form>
     </div>
 </div>
 

@@ -85,12 +85,12 @@ namespace SGPI.Controllers
         public IActionResult PagoEstudiante(TblPago usuario)
         {
             usuario.Estado = true;
-            int idusuario = ViewBag.idusuario;
+            
             ViewBag.mensaje = "Pago Enviado";
             BDContext.TblPagos.Add(usuario);
             BDContext.SaveChanges();
 
-            var user = BDContext.TblUsuarios.Where(consulta => consulta.Idusuario == idusuario).FirstOrDefault();
+            //var user = BDContext.TblUsuarios.Where(consulta => consulta.Idusuario == idusuario).FirstOrDefault();
 
             //TblUsuario usr = BDContext.TblUsuarios.Find(IdUsuario);
 
